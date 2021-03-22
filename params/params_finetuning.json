@@ -1,0 +1,16 @@
+{
+    "augment_smiles": false,
+    "smiles_canonical": false,
+    "ligand_padding_length": 500,
+    "receptor_padding_length": 500,
+    "activation_fn": "relu",
+    "dropout": 0.5,
+    "batch_norm": false,
+    "batch_size": 2,
+    "lr": 0.0001,
+    "ligand_attention_size": 64,
+    "receptor_attention_size": 64,
+    "epochs": 2,
+    "save_model": 25,
+    "number_of_tunable_layers": 41
+}
