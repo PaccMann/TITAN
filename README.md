@@ -37,7 +37,7 @@ If you bring your own data, it needs to adhere to the following format:
 - `test.csv`       A `.csv` file containing three columns, one for TCR IDs, one for epitope IDs and one for the labels. This data is used for testing.
 
 NOTE: `tcrs.csv` and `epitopes.csv` need to contain **all** TCRs and epitopes used during training and testing. No duplicates in both sequence and IDs are allowed.
-
+All data can be found in https://ibm.box.com/s/y7rpfxujoieurhtnjut4jw0q5g64mwtj .
 
 ## Example usage TITAN
 The TITAN model uses the architecture published as 'paccmann_predictor' [package](https://github.com/PaccMann/paccmann_predictor). Example parameter files are given in the params folder.
