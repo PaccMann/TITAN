@@ -9,19 +9,14 @@
 
 The library itself has few dependencies (see [setup.py](setup.py)) with loose requirements. 
 
-Create a conda environment:
+Create a virtual environment and install dependencies
 
 ```console
-conda env create -f conda.yml
-```
-
-Activate the environment:
-
-```console
-conda activate titan
+python -m venv --system-site-packages venv
+source venv/bin/activate
+pip install -r requirements.txt
 ```
 Install in editable mode for development:
-
 ```console
 pip install -e .
 ```
