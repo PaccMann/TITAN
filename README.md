@@ -1,27 +1,22 @@
+[![Python package](https://github.com/PaccMann/TITAN/actions/workflows/python-package.yml/badge.svg)](https://github.com/PaccMann/TITAN/actions/workflows/python-package.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 
-# paccmann_tcr
-
-TCell Receptor to peptide binding project
+# TITAN
+ TITAN - **T**cr ep**IT**ope bimodal **A**ttention **N**etworks
 
 ## Installation
 
 The library itself has few dependencies (see [setup.py](setup.py)) with loose requirements. 
 
-Create a conda environment:
+Create a virtual environment and install dependencies
 
 ```console
-conda env create -f conda.yml
-```
-
-Activate the environment:
-
-```console
-conda activate titan
+python -m venv --system-site-packages venv
+source venv/bin/activate
+pip install -r requirements.txt
 ```
 Install in editable mode for development:
-
 ```console
 pip install -e .
 ```
@@ -37,9 +32,11 @@ If you bring your own data, it needs to adhere to the following format:
 - `test.csv`       A `.csv` file containing three columns, one for TCR IDs, one for epitope IDs and one for the labels. This data is used for testing.
 
 NOTE: `tcrs.csv` and `epitopes.csv` need to contain **all** TCRs and epitopes used during training and testing. No duplicates in both sequence and IDs are allowed.
-All data can be found in https://ibm.box.com/s/y7rpfxujoieurhtnjut4jw0q5g64mwtj .
+All data can be found in https://ibm.box.com/v/titan-dataset .
 
-## Example usage TITAN
+
+# Example usages
+## Train a TITAN model
 The TITAN model uses the architecture published as 'paccmann_predictor' [package](https://github.com/PaccMann/paccmann_predictor). Example parameter files are given in the params folder.
 
 
@@ -56,7 +53,7 @@ path_to_parameter_file \
 bimodal_mca
 ```
 
-## Example usage finetuning
+## Finetune an existing TITAN model
 To load a TITAN model after pretraining and finetune it on another dataset, use the `semifrozen_finetuning.py` script. Use the parameter `number_of_tunable_layers` to control the number of layers which will be tuned, the rest will be frozen. Model will freeze epitope input channel first and the final dense layers last. Do not change the input data type (i.e. SMILES or amino acids) between pretraining and finetuning.
 
 
@@ -72,8 +69,10 @@ training_name \
 bimodal_mca
 ```
 
+## Run trained TITAN model on data
+*This will follow soon.*
 
-## Example usage K-NN
+## Evaluate K-NN baseline on cross validation
 
 The script `scripts/knn_cv.py` uses the KNN baseline model of the paper and performs a cross validation.
 The script can be used in two modes, *shared* and *separate*. *Shared* is the default mode as specified [above](#Data-structure). In *separate* mode, the TCRs and epitope sequences for training and testing dont need to be in the same file, but can be split across two files. To use this mode, simply provide additional paths to `-test_tcr` and `test_ep` arguments.
@@ -105,6 +104,14 @@ data_path
 ```
 
 ## Citation
-If you use `titan` in your projects, please cite the following:
+If you use `titan` in your projects, please temporary cite the following:
 
-*Citation will appear soon.*
+```bib
+@article{weber2021titan,
+  title={TITAN: T Cell Receptor Specificity Prediction with Bimodal Attention Networks},
+  author={Weber, Anna and Born, Jannis and Mart{\'\i}nez, Mar{\'\i}a Rodr{\'\i}guez},
+  journal={arXiv preprint arXiv:2105.03323},
+  note={Accepted at ISMB 2021. To appear in Bioinformatics},
+  year={2021}
+}
+```
