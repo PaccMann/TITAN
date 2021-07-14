@@ -104,14 +104,20 @@ data_path
 ```
 
 ## Citation
-If you use `titan` in your projects, please temporary cite the following:
+If you use `titan` in your projects, please cite the following:
 
 ```bib
-@article{weber2021titan,
-  title={TITAN: T Cell Receptor Specificity Prediction with Bimodal Attention Networks},
-  author={Weber, Anna and Born, Jannis and Mart{\'\i}nez, Mar{\'\i}a Rodr{\'\i}guez},
-  journal={arXiv preprint arXiv:2105.03323},
-  note={Accepted at ISMB 2021. To appear in Bioinformatics},
-  year={2021}
+@article{weber2021titan
+    author = {Weber, Anna and Born, Jannis and Rodriguez Martínez, María},
+    title = "{TITAN: T-cell receptor specificity prediction with bimodal attention networks}",
+    journal = {Bioinformatics},
+    volume = {37},
+    number = {Supplement_1},
+    pages = {i237-i244},
+    year = {2021},
+    month = {07},
+    issn = {1367-4803},
+    doi = {10.1093/bioinformatics/btab294},
+    url = {https://doi.org/10.1093/bioinformatics/btab294}
 }
 ```
