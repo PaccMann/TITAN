@@ -108,7 +108,7 @@ If you use `titan` in your projects, please cite the following:
 
 ```bib
 @article{weber2021titan
-    author = {Weber, Anna and Born, Jannis and Rodriguez Martínez, María},
+    author = {Weber, Anna and Born, Jannis and Rodriguez Martinez, Maria},
     title = "{TITAN: T-cell receptor specificity prediction with bimodal attention networks}",
     journal = {Bioinformatics},
     volume = {37},
