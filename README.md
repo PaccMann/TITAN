@@ -70,7 +70,17 @@ bimodal_mca
 ```
 
 ## Run trained TITAN model on data
-*This will follow soon.*
+A trained model is provided in https://ibm.box.com/v/titan-dataset along with the dataset used to train it. The model is pretrained on BindingDB and finetuned using the semifrozen setting, on full TCR sequences and with SMILES encoding of epitopes. All parameters can be found in the parameter files provided. 
+
+```console
+python3 scripts/flexible_model_eval.py \
+name_of_test_data_file.csv \
+path_to_tcr_file.csv \
+path_to_epitope_file.smi \
+path_to_trained_model_folder \
+bimodal_mca \
+save_name
+```
 
 ## Evaluate K-NN baseline on cross validation
 
