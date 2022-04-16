@@ -1,11 +1,11 @@
-pytoda @ git+https://github.com/PaccMann/paccmann_datasets@0.2.4
+pytoda==1.0.2
 paccmann_predictor @ git+https://github.com/PaccMann/paccmann_predictor@0.0.4
 torch>=1.4
-numpy==1.16.1
+numpy>=1.16.1
 scipy>=1.3.1
 python-Levenshtein==0.12.0
-pandas>=0.24.2,<1.0
-scikit-learn==0.22.2
+pandas
+scikit-learn>=0.22.2
 seaborn>=0.9.0
 matplotlib>=3.1.1
 rdkit-pypi
