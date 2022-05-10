@@ -144,8 +144,7 @@ def main(
             entity_names=['ligand_name', 'sequence_id'],
             labels_filepath=train_affinity_filepath,
             annotations_column_names=['label'],
-            protein_language=protein_language,
-            amino_acid_dict='iupac',
+            protein_languages=protein_language,
             padding_lengths=[
                 params.get('ligand_padding_length', None),
                 params.get('receptor_padding_length', None)
@@ -154,8 +153,9 @@ def main(
             add_start_and_stops=params.get('add_start_stop_token', True),
             augment_by_reverts=params.get('augment_protein', False),
             randomizes=params.get('randomize', False),
+            iterate_datasets=True
         )
-
+        
         train_loader = torch.utils.data.DataLoader(
             dataset=train_dataset,
             batch_size=params['batch_size'],
@@ -169,8 +169,7 @@ def main(
             entity_names=['ligand_name', 'sequence_id'],
             labels_filepath=test_affinity_filepath,
             annotations_column_names=['label'],
-            protein_language=protein_language,
-            amino_acid_dict='iupac',
+            protein_languages=protein_language,
             padding_lengths=[
                 params.get('ligand_padding_length', None),
                 params.get('receptor_padding_length', None)
@@ -179,6 +178,7 @@ def main(
             add_start_and_stops=params.get('add_start_stop_token', True),
             augment_by_reverts=params.get('augment_test_data', False),
             randomizes=False,
+            iterate_datasets=True
         )
 
         test_loader = torch.utils.data.DataLoader(
@@ -207,7 +207,9 @@ def main(
             'Ligand file has extension .smi \n'
             'Please make sure ligand is provided as SMILES.'
         )
-
+        #print(protein_language.max_token_sequence_length)
+        #protein_language._update_max_token_sequence_length()
+        print(protein_language.max_token_sequence_length)
         # Assemble datasets
         train_dataset = DrugAffinityDataset(
             drug_affinity_filepath=train_affinity_filepath,
@@ -244,7 +246,7 @@ def main(
             device=device,
             drug_affinity_dtype=torch.float,
             backend='eager',
-            iterate_dataset=False
+            iterate_dataset=True
         )
         train_loader = torch.utils.data.DataLoader(
             dataset=train_dataset,
@@ -289,7 +291,7 @@ def main(
             device=device,
             drug_affinity_dtype=torch.float,
             backend='eager',
-            iterate_dataset=False
+            iterate_dataset=True
         )
         logger.info(
             f'Training dataset has {len(train_dataset)} samples, test set has '
