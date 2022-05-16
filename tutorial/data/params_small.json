@@ -3,19 +3,19 @@
     "smiles_canonical": false,
     "ligand_start_stop_token": true,
     "receptor_start_stop_token": true,
-    "ligand_padding_length": 500,
-    "receptor_padding_length": 35,
-    "receptor_embedding": "predefined",
-    "ligand_embedding": "predefined",
+    "ligand_padding_length": 422,
+    "receptor_padding_length": 130,
+    "receptor_embedding": "learned",
+    "ligand_embedding": "learned",
     "predefined_embedding": "blosum",
     "receptor_embedding_size": 26,
     "ligand_embedding_size": 26,
     "ligand_filters": [26,26],
     "receptor_filters": [26,26],
-    "ligand_kernel_sizes": [[3,26],[5,26]],
+    "ligand_kernel_sizes": [[5,26],[7,26]],
     "receptor_kernel_sizes": [[3,26],[5,26]],
-    "ligand_attention_size": 25,
-    "receptor_attention_size": 25,
+    "ligand_attention_size": 32,
+    "receptor_attention_size": 32,
     "dense_hidden_sizes": [
         200,
         80
@@ -23,8 +23,8 @@
     "activation_fn": "relu",
     "dropout": 0.5,
     "batch_norm": false,
-    "batch_size": 50,
+    "batch_size": 512,
     "lr": 0.0001,
-    "epochs": 10,
-    "save_model": 5
+    "epochs": 100,
+    "save_model": 20
 }
