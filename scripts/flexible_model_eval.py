@@ -113,8 +113,7 @@ def main(
             entity_names=['ligand_name', 'sequence_id'],
             labels_filepath=test_affinity_filepath,
             annotations_column_names=['label'],
-            protein_language=protein_language,
-            amino_acid_dict='iupac',
+            protein_languages=protein_language,
             padding_lengths=[
                 params.get('ligand_padding_length', None),
                 params.get('receptor_padding_length', None)
@@ -123,6 +122,7 @@ def main(
             add_start_and_stops=params.get('add_start_stop_token', True),
             augment_by_reverts=params.get('augment_test_data', False),
             randomizes=False,
+            iterate_datasets=True
         )
 
         test_loader = torch.utils.data.DataLoader(
@@ -174,7 +174,7 @@ def main(
             device=device,
             drug_affinity_dtype=torch.float,
             backend='eager',
-            iterate_dataset=False
+            iterate_dataset=True
         )
         logger.info(f'Test dataset has {len(test_dataset)} samples.')
         test_loader = torch.utils.data.DataLoader(
@@ -202,7 +202,7 @@ def main(
     model._associate_language(protein_language)
 
     model_file = os.path.join(
-        model_path, 'weights', 'done_training_bimodal_mca.pt'
+        model_path, 'weights', 'best_ROC-AUC_bimodal_mca.pt'
     )
 
     logger.info(f'looking for model in {model_file}')
