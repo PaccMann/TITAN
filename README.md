@@ -46,10 +46,9 @@ name_of_training_data_files.csv \
 name_of_testing_data_files.csv \
 path_to_tcr_file.csv \
 path_to_epitope_file.csv/.smi \
-path_to_pretrained_model \
-path_to_store_finetuned_model \
-training_name \
+path_to_store_trained_model \
 path_to_parameter_file \
+training_name \
 bimodal_mca
 ```
 
