@@ -96,7 +96,6 @@ def main(
         add_start_and_stop=params.get('ligand_start_stop_token', True),
         padding=params.get('ligand_padding', True),
         padding_length=params.get('ligand_padding_length', True),
-        device=device,
     )
     smiles_language.set_smiles_transforms(
         augment=params.get('augment_smiles', False),
@@ -243,7 +242,6 @@ def main(
                 'receptor_add_start_stop', True
             ),
             protein_augment_by_revert=params.get('augment_protein', False),
-            device=device,
             drug_affinity_dtype=torch.float,
             backend='eager',
             iterate_dataset=True
@@ -288,7 +286,6 @@ def main(
                 'receptor_add_start_stop', True
             ),
             protein_augment_by_revert=False,
-            device=device,
             drug_affinity_dtype=torch.float,
             backend='eager',
             iterate_dataset=True
@@ -321,10 +318,6 @@ def main(
         given was {pep_extension}"
         )
 
-    logger.info(
-        f'Device for data loader is {train_dataset.device} and for '
-        f'model is {device}'
-    )
     save_top_model = os.path.join(model_dir, 'weights/{}_{}_{}.pt')
 
     model_fn = params.get('model_fn', model_type)
@@ -371,7 +364,7 @@ def main(
             torch.cuda.empty_cache()
             if ind % 10 == 0:
                 logger.info(f'Batch {ind}/{len(train_loader)}')
-            y_hat, pred_dict = model(ligand, receptors)
+            y_hat, pred_dict = model(ligand.to(device), receptors.to(device))
             loss = model.loss(y_hat, y.to(device))
             optimizer.zero_grad()
             loss.backward()

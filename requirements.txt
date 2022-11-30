@@ -1,4 +1,4 @@
-pytoda==1.0.2
+pytoda==1.1.2
 paccmann_predictor @ git+https://github.com/PaccMann/paccmann_predictor@0.0.4
 torch>=1.4
 numpy>=1.16.1

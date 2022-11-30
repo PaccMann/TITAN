@@ -76,7 +76,6 @@ def main(
         add_start_and_stop=params.get('ligand_start_stop_token', True),
         padding=params.get('ligand_padding', True),
         padding_length=params.get('ligand_padding_length', True),
-        device=device,
     )
     smiles_language.set_smiles_transforms(
         augment=False,
@@ -171,7 +170,6 @@ def main(
                 'receptor_add_start_stop', True
             ),
             protein_augment_by_revert=False,
-            device=device,
             drug_affinity_dtype=torch.float,
             backend='eager',
             iterate_dataset=True
