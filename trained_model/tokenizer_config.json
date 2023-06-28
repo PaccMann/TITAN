@@ -1,0 +1,5 @@
+{
+    "name": "smiles-language",
+    "tokenizer_name": null,
+    "max_token_sequence_length": 1261
+}

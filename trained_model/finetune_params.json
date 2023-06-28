@@ -1,0 +1,13 @@
+{
+    "epochs": 200,
+    "lr": 0.0001,
+    "number_of_tunable_layers": 68,
+    "ligand_add_start_stop": true,
+    "ligand_padding_length": 500,
+    "receptor_padding_length": 1028,
+    "ligand_padding": true,
+    "batch_size": 128,
+    "augment_smiles": true,
+    "protein_augment": true,
+    "test_smiles_canonical": true
+}

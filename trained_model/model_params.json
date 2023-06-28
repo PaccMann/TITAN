@@ -1,0 +1,71 @@
+{
+    "augment_smiles": true,
+    "smiles_canonical": false,
+    "ligand_start_stop_token": true,
+    "receptor_start_stop_token": true,
+    "ligand_embedding": "learned",
+    "receptor_embedding": "predefined",
+    "predefined_embedding": "blosum",
+    "receptor_embedding_size": 26,
+    "ligand_embedding_size": 32,
+    "protein_augment": true,
+    "test_smiles_canonical": true,
+    "ligand_padding_length": 500,
+    "receptor_padding_length": 1028,
+    "receptor_filters": [
+        512,
+        512,
+        512
+    ],
+    "ligand_filters": [
+        512,
+        512,
+        512
+    ],
+    "receptor_kernel_sizes": [
+        [
+            3,
+            26
+        ],
+        [
+            7,
+            26
+        ],
+        [
+            13,
+            26
+        ]
+    ],
+    "ligand_kernel_sizes": [
+        [
+            3,
+            32
+        ],
+        [
+            7,
+            32
+        ],
+        [
+            13,
+            32
+        ]
+    ],
+    "dense_hidden_sizes": [
+        2048,
+        1024,
+        512
+    ],
+    "activation_fn": "relu",
+    "dropout": 0.5,
+    "batch_norm": true,
+    "batch_size": 128,
+    "lr": 0.0002,
+    "ligand_attention_size": 256,
+    "receptor_attention_size": 256,
+    "epochs": 20,
+    "save_model": 4,
+    "ligand_vocabulary_size": 571,
+    "receptor_vocabulary_size": 28,
+    "ligand_as": "smiles",
+    "number_of_parameters": 15486517
+}
